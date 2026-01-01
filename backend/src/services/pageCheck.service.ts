@@ -1,7 +1,7 @@
 import { CheckRequest, CheckResponse } from "../types/check.js";
 import crypto from "crypto";
 
-export async function checkPage(req: CheckRequest): Promise<CheckResponse> {
+export const checkPage = async (req: CheckRequest): Promise<CheckResponse> => {
   const start = Date.now();
 
   const response = await fetch(req.url, {
