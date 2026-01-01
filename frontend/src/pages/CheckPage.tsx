@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { checkUrl } from "../api/checkApi";
 import { type CheckResponse } from "../types/check";
+import TextField from '@mui/material/TextField';
 
 const CheckPage = () => {
   const [url, setUrl] = useState("");
@@ -23,12 +24,12 @@ const CheckPage = () => {
     <>
       <h2>Check URL</h2>
 
-      <input
-        type="text"
+      <TextField
+        label="Check URL"
+        variant="outlined"
         placeholder="https://example.com"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
-        style={{ width: 400 }}
       />
 
       <button onClick={handleCheck} disabled={loading}>
