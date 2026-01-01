@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { FiMenu } from "react-icons/fi";
 
 const Navigation = () => {
   return (
     <nav style={{ width: 200, padding: 16, borderRight: "1px solid #ddd" }}>
+      <FiMenu />
       <h3>Web Sentinel</h3>
       <ul>
         <li><Link to="/check">Check URL</Link></li>
