@@ -15,6 +15,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import LanguageIcon from "@mui/icons-material/Language";
+import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 const Navigation = () => {
@@ -39,7 +40,7 @@ const Navigation = () => {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6">Sentinel</Typography>
+          <Typography variant="h6" component="h1">Sentinel</Typography>
         </Toolbar>
       </AppBar>
 
@@ -52,6 +53,15 @@ const Navigation = () => {
                   <LanguageIcon />
                 </ListItemIcon>
                 <ListItemText primary="Check URL" />
+              </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+              <ListItemButton onClick={() => goTo("/monitoring")}>
+                <ListItemIcon>
+                  <MonitorHeartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Monitoring" />
               </ListItemButton>
             </ListItem>
 

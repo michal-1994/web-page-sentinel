@@ -1,18 +1,19 @@
 import { Card, CardContent, Typography } from "@mui/material";
+import PageTitle from "../components/PageTitle";
 
 const SettingsPage = () => {
   return (
-    <Card sx={{ maxWidth: 600 }}>
-      <CardContent>
-        <Typography variant="h5">
-          Settings
-        </Typography>
+    <>
+      <PageTitle title="Settings" />
 
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-          Configuration options will be available here in the future.
-        </Typography>
-      </CardContent>
-    </Card>
+      <Card sx={{ maxWidth: 600 }}>
+        <CardContent>
+          <Typography color="text.secondary" sx={{ mt: 1 }}>
+            Configuration options will be available here in the future.
+          </Typography>
+        </CardContent>
+      </Card>
+    </>
   );
 };
 
