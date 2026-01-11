@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { checkUrl } from "../api/checkApi";
 import { type CheckResponse } from "../types/check";
-import TextField from '@mui/material/TextField';
+
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  TextField,
+  Typography,
+  CircularProgress
+} from "@mui/material";
 
 const CheckPage = () => {
   const [url, setUrl] = useState("");
@@ -21,26 +30,38 @@ const CheckPage = () => {
   }
 
   return (
-    <>
-      <h2>Check URL</h2>
+    <Card sx={{ maxWidth: 600 }}>
+      <CardContent>
+        <Typography variant="h5" gutterBottom>
+          Check URL
+        </Typography>
 
-      <TextField
-        label="Check URL"
-        variant="outlined"
-        placeholder="https://example.com"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-      />
+        <TextField
+          fullWidth
+          label="Website URL"
+          placeholder="https://example.com"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          sx={{ mb: 2 }}
+        />
 
-      <button onClick={handleCheck} disabled={loading}>
-        {loading ? "Checking..." : "Check"}
-      </button>
+        <Button
+          variant="contained"
+          onClick={handleCheck}
+          disabled={loading || !url}
+        >
+          {loading ? <CircularProgress size={24} /> : "Check"}
+        </Button>
 
-      {result && (
-        <pre>{JSON.stringify(result, null, 2)}</pre>
-      )}
-    </>
+        {result && (
+          <Box sx={{ mt: 3 }}>
+            <Typography variant="subtitle1">Result</Typography>
+            <pre>{JSON.stringify(result, null, 2)}</pre>
+          </Box>
+        )}
+      </CardContent>
+    </Card>
   );
-}
+};
 
 export default CheckPage;

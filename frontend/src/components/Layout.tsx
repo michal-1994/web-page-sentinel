@@ -1,15 +1,16 @@
 import { type ReactNode } from "react";
 import Navigation from "./Navigation";
+import Box from "@mui/material/Box";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
+    <Box sx={{ minHeight: "100vh", bgcolor: "#f5f6fa" }}>
       <Navigation />
-      <main style={{ padding: 24, flex: 1 }}>
+      <Box component="main" sx={{ p: 3 }}>
         {children}
-      </main>
-    </div>
+      </Box>
+    </Box>
   );
-}
+};
 
 export default Layout;
